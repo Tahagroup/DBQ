@@ -1,0 +1,92 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+  /* border: 2px black solid; */
+  margin: auto;
+  padding: 1rem 8rem;
+  border-bottom-left-radius: 6rem;
+  border-bottom-right-radius: 6rem;
+  color: #333;
+  /* #2d0351,
+    #470e78 */
+  /* background-color: yellow !important; */
+  color: aliceblue;
+
+  /* opacity: 0.8; */
+}
+
+.fileName {
+  color: aliceblue;
+
+  text-align: center;
+}
+.version {
+  font-size: 0.8rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.titleFlex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+  padding-left: 1rem;
+  font-size: 2rem;
+}
+.subtitle {
+  align-items: center;
+}
+.link {
+  align-items: center;
+  font-size: 0.5rem;
+  text-decoration: none;
+  color: aliceblue;
+}
+.excelName {
+  color: aliceblue;
+}
+.file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.filePicker {
+  margin-top: 0.5rem;
+  /* border: none;
+  outline: none;
+  outline-width: 0; */
+}
+
+.fileInput label {
+  display: block;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  /* background: linear-gradient(40deg, #ff6ec4, #7873f5); */
+  background: red;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+input:hover + label {
+  transform: scale(1.18);
+  background-color: rgb(231, 231, 25);
+  color: #2d0351;
+  /* box-shadow: 14px 14px 14px 14px rgba (0, 0, 0, 0.4); */
+}
+
+input:focus + label {
+  /* outline: 1px solid #000; */
+  /* outline: -webkit-focus-ring-color auto 2px; */
+}
