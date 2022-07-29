@@ -11,18 +11,16 @@ function App() {
     setTableData(data);
   }
 
+  function onDataLoad(loading) {
+    setIsLoading(loading);
+  }
+
   const hasData = tableData[0].length !== 0;
   return (
     <React.Fragment>
-      <Header
-        tableDataProvider={tableDataProvider}
-        setIsLoading={setIsLoading}
-      />
-      {hasData ? (
-        <RowList tableData={tableData} isLoading={isLoading} />
-      ) : (
-        noFilePage()
-      )}
+      <Header tableDataProvider={tableDataProvider} setloading={onDataLoad} />
+      {hasData && <RowList tableData={tableData} loading={isLoading} />}
+      {!hasData && noFilePage()}
     </React.Fragment>
   );
 }

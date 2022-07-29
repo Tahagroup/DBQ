@@ -7,7 +7,9 @@
     #470e78 */
 .tablePaper {
   text-align: center !important;
-  background-color: rgb(64, 170, 235) !important;
+  background-color: rgba(30, 226, 82, 0.5) !important;
+  /* background-color: rgba(31, 154, 64, 0.5) !important; */
+  /* background-color: rgba(115, 185, 134, 0.5) !important; */
   padding: 2rem 2rem !important;
   border-radius: 2.2rem !important;
   /* vertical-align: middle !important; */
@@ -19,8 +21,8 @@ button {
   text-align: center;
   font-family: "samim", sans-serif !important;
   border-radius: 0.6rem;
-  background-color: #470e78;
-  color: white;
+  background-color: rgb(29, 112, 68);
+  color: wheat;
   /* width: 4rem !important; */
 }
 
@@ -34,7 +36,7 @@ button {
   /* border-radius: 2rem !important; */
   font-family: "samim", sans-serif !important;
   text-align: center !important;
-  background-color: #470e78 !important;
+  background-color: rgb(29, 112, 68) !important;
   color: wheat !important;
   /* margin: 10rem !important; */
 }
@@ -87,10 +89,10 @@ td {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #470e78;
+  background: rgb(29, 112, 68);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(4, 22, 76);
+  background: rgb(17, 66, 40);
 }

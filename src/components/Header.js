@@ -6,36 +6,41 @@ import styles from "./Header.module.css";
 const Header = (props) => {
   let fileName = useRef("");
   const onExcelSelect = (e) => {
-    props.setIsLoading(true);
+    props.setloading(true);
     const [file] = e.target.files;
     const reader = new FileReader();
     reader.onload = (evt) => {
-      props.setIsLoading(false);
+      props.setloading(false);
       const bstr = evt.target.result;
       const wb = xlsx.read(bstr, { type: "binary" });
       const wsname = wb.SheetNames[0];
       const ws = wb.Sheets[wsname]; //worksheet name
       const jsonData = xlsx.utils.sheet_to_json(ws);
       fileName.current = e.target.value.replace(/.*[\/\\]/, "").toString(); //Manipulating the DOM :(, can be replaced with useState
-      console.log(fileName.current.split("."));
+      // console.log(fileName.current.split("."));
       document.title = fileName.current.split(".")[0];
       props.tableDataProvider([jsonData, Object.keys(jsonData[0])]); //[[array of data without headers],[headers]]
     };
-    reader.readAsBinaryString(file);
+    // reader.onabort = (e) => {
+    //   console.log("Aborted");
+    //   props.setloading(false);
+    // };
+    try {
+      reader.readAsBinaryString(file);
+    } catch (error) {
+      props.setloading(false);
+    }
   };
 
   return (
     <div className={styles.header}>
       <div className={styles.titleFlex}>
         <span className={styles.title}>
-          DBQ<sup className={styles.version}>v1.3</sup>
+          DBQ<sup className={styles.version}>v1.4</sup>
         </span>
         <span className={styles.subtitle}>نمایشگر فایل های اکسل</span>
-        <a
-          className={styles.link}
-          href="https://github.com/ESMonitoring/Alarmer"
-        >
-          github.com/ESMonitoring/Alarmer
+        <a className={styles.link} href="https://github.com/Tahagroup/DBQ">
+          Developer: Yasin Basiri
         </a>
       </div>
       {fileName.current && (

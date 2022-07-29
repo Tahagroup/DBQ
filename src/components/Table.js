@@ -247,7 +247,6 @@ function Table({ columns, data }) {
 
   //   return generateExcel(config);
   // }
-  console.log(data);
   // Render the UI for your table ..................................................................................................
   return (
     <Paper className={styles.tablePaper}>
@@ -375,7 +374,7 @@ function Table({ columns, data }) {
           >
             {[10, 20, 30, 40, 50, data.length].map((pageSize) => (
               <option key={pageSize} value={pageSize}>
-                {pageSize != data.length
+                {pageSize !== data.length
                   ? `${pageSize} سطر در صفحه`
                   : "نمایش کل سطرها"}
                 {/* pageSize == data.length? "":{pageSize} سطر در صفحه */}

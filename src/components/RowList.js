@@ -2,8 +2,7 @@ import { React, useMemo } from "react";
 
 import Table from "./Table";
 import styles from "./RowList.module.css";
-
-// import { getThemeProps } from "@material-ui/styles";
+import LoadingSpinner from "./loadingSpinner";
 
 function RowList(props) {
   const columns = useMemo(
@@ -16,9 +15,9 @@ function RowList(props) {
       }),
     [props.tableData[1]]
   );
-
-  return props.isLoading ? (
-    <div>Loading...</div>
+  /////////////////////////////////
+  return props.loading ? (
+    <LoadingSpinner />
   ) : (
     <div className={styles.tableContainer}>
       <Table columns={columns} data={props.tableData[0]} />
