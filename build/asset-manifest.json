@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.a4eee619.css",
+    "main.js": "./static/js/main.5619bf6f.js",
+    "static/js/787.6135cd1d.chunk.js": "./static/js/787.6135cd1d.chunk.js",
+    "static/media/Samim-Bold-FD.woff2": "./static/media/Samim-Bold-FD.716c9ed64b208342a5d5.woff2",
+    "index.html": "./index.html",
+    "main.a4eee619.css.map": "./static/css/main.a4eee619.css.map",
+    "main.5619bf6f.js.map": "./static/js/main.5619bf6f.js.map",
+    "787.6135cd1d.chunk.js.map": "./static/js/787.6135cd1d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4eee619.css",
+    "static/js/main.5619bf6f.js"
+  ]
+}
