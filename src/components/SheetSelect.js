@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./SheetSelect.module.css";
 
 export default function SheetSelect(props) {
-  props.setSelectedSheet(props.sheetData[0]);
+  // props.setSelectedSheet(props.sheetData[0]);
 
   const [isActive, setisActive] = useState(0);
   function sheetSelectHandler(sheet, index) {
