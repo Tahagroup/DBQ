@@ -5,6 +5,7 @@ import styles from "./Header.module.css";
 
 const Header = (props) => {
   let fileName = useRef("");
+
   const onExcelSelect = (e) => {
     props.setloading(true);
     const [file] = e.target.files;
@@ -13,18 +14,15 @@ const Header = (props) => {
       props.setloading(false);
       const bstr = evt.target.result;
       const wb = xlsx.read(bstr, { type: "binary" });
-      const wsname = wb.SheetNames[0];
-      const ws = wb.Sheets[wsname]; //worksheet name
-      const jsonData = xlsx.utils.sheet_to_json(ws);
+      props.setSheetNames(wb.SheetNames);
+      props.onExcelFileSelected(e);
+      // const wsname = wb.SheetNames[0];
+      // const ws = wb.Sheets[wsname]; //worksheet name
+      // const jsonData = xlsx.utils.sheet_to_json(ws);
       fileName.current = e.target.value.replace(/.*[\/\\]/, "").toString(); //Manipulating the DOM :(, can be replaced with useState
-      // console.log(fileName.current.split("."));
       document.title = fileName.current.split(".")[0];
-      props.tableDataProvider([jsonData, Object.keys(jsonData[0])]); //[[array of data without headers],[headers]]
     };
-    // reader.onabort = (e) => {
-    //   console.log("Aborted");
-    //   props.setloading(false);
-    // };
+    // #FIXME:
     try {
       reader.readAsBinaryString(file);
     } catch (error) {
@@ -33,7 +31,8 @@ const Header = (props) => {
   };
 
   return (
-    <div className={styles.header}>
+    // <div className={styles.header}>
+    <div className={`${styles.header} unselectable`}>
       <div className={styles.titleFlex}>
         <span className={styles.title}>
           DBQ<sup className={styles.version}>v1.4</sup>

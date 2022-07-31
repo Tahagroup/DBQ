@@ -19,10 +19,18 @@
   /* margin-bottom: 1rem; */
 }
 .excel-icon:hover {
-  transform: scale(1.1) rotate(10deg);
+  transform: scale(1.1) rotate(-10deg);
 }
 
 .excel-text {
   font-size: 1.5rem;
   flex-shrink: 0;
+}
+
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }

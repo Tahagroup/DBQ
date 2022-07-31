@@ -35,7 +35,7 @@
   /* margin-right: 1rem; */
   /* font-size: 2rem; */
   /* font-weight: 200; */
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 2rem;
   border-top-right-radius: 0rem;
   border-bottom-left-radius: 0rem;
@@ -60,10 +60,11 @@
 }
 .title {
   padding-left: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .subtitle {
   align-items: center;
+  font-size: 0.8rem;
 }
 .link {
   align-items: center;
@@ -95,12 +96,12 @@
   height: 50px;
   border-radius: 25px;
   /* background: linear-gradient(40deg, #ff6ec4, #7873f5); */
-  background: red;
+  background: rgb(165, 227, 40);
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: rgb(10, 75, 10);
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease-out;
