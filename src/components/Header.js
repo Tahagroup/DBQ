@@ -7,26 +7,28 @@ const Header = (props) => {
   let fileName = useRef("");
 
   const onExcelSelect = (e) => {
-    props.setloading(true);
+    props.isloading(true);
+
     const [file] = e.target.files;
     const reader = new FileReader();
     reader.onload = (evt) => {
-      props.setloading(false);
+      props.isloading(false);
+      props.tableDataProvider([[], []]);
+      // props.setSheetNames();
       const bstr = evt.target.result;
       const wb = xlsx.read(bstr, { type: "binary" });
       props.setSheetNames(wb.SheetNames);
       props.onExcelFileSelected(e);
-      // const wsname = wb.SheetNames[0];
-      // const ws = wb.Sheets[wsname]; //worksheet name
-      // const jsonData = xlsx.utils.sheet_to_json(ws);
+      // setting doc title:
       fileName.current = e.target.value.replace(/.*[\/\\]/, "").toString(); //Manipulating the DOM :(, can be replaced with useState
-      document.title = fileName.current.split(".")[0];
+      const excelFileName = fileName.current.split(".").slice(0, -1);
+      document.title = excelFileName.join(".");
     };
     // #FIXME:
     try {
       reader.readAsBinaryString(file);
     } catch (error) {
-      props.setloading(false);
+      props.isloading(false);
     }
   };
 
@@ -39,7 +41,7 @@ const Header = (props) => {
         </span>
         <span className={styles.subtitle}>نمایشگر فایل های اکسل</span>
         <a className={styles.link} href="https://github.com/Tahagroup/DBQ">
-          Developer: Yasin Basiri
+          Dev: Yasin.bsr
         </a>
       </div>
       {fileName.current && (

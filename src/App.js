@@ -15,7 +15,7 @@ function App() {
     setTableData(data);
   }
 
-  function onDataLoad(loading) {
+  function dataLoadHandler(loading) {
     setIsLoading(loading);
   }
 
@@ -29,7 +29,6 @@ function App() {
 
   function SelectedSheetHandler(sheetNameData) {
     // setselectedSheetName(sheetName);
-
     setIsLoading(true);
     const [file] = selectedExcelFile.target.files;
     const reader = new FileReader();
@@ -61,7 +60,7 @@ function App() {
     <React.Fragment>
       <Header
         tableDataProvider={tableDataProvider}
-        setloading={onDataLoad}
+        isloading={dataLoadHandler}
         setSheetNames={setSheetNames}
         onExcelFileSelected={selectedExcelFileHandler}
       />
@@ -72,21 +71,29 @@ function App() {
         />
       )}
       {hasData && <MainContent tableData={tableData} loading={isLoading} />}
-      {!hasData && noFilePage()}
+      {!hasData && noFilePage(sheetData)}
     </React.Fragment>
   );
 }
 
 export default App;
-function noFilePage() {
+function noFilePage(sheetData) {
   return (
     <div className="no-excel--wrapper">
       <img src={logo} alt="excel" className="excel-icon" />
-      <span className="excel-text">
-        <div>با دکمه بالای صفحه</div>
-        <div>یک فایل اکسل</div>
-        <div>.انتخاب کنید</div>
-      </span>
+      {sheetData ? (
+        <span className="excel-text">
+          <div>⬆</div>
+          <div>صفحه موردنظر را</div>
+          <div>.انتخاب کنید</div>
+        </span>
+      ) : (
+        <span className="excel-text">
+          <div>با دکمه بالای صفحه</div>
+          <div>یک فایل اکسل</div>
+          <div>.انتخاب کنید</div>
+        </span>
+      )}
     </div>
   );
 }

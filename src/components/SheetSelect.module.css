@@ -1,12 +1,14 @@
 .sheetItem {
   border: lightgreen 1px solid;
-  color: lightgreen;
   border-radius: 0.7rem;
   padding: 0.5rem 1rem;
-  margin: 0 0.2rem;
+  margin: 0.2rem;
+  color: lightgreen;
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 
+  /* overflow: auto; */
   /* background-color: lightgreen; */
 }
 
@@ -21,6 +23,11 @@
   margin: 0 0.2rem;
   background-color: rgb(144, 238, 144);
   color: green;
+  /*  */
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  /*  */
   user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -35,4 +42,6 @@
   align-items: center;
   align-self: center;
   align-content: center;
+  flex-wrap: wrap;
 }
+/* ****************************************** */
