@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "./static/css/main.6f14d006.css",
-    "main.js": "./static/js/main.b112a0ed.js",
+    "main.js": "./static/js/main.110e829d.js",
     "static/js/787.6135cd1d.chunk.js": "./static/js/787.6135cd1d.chunk.js",
     "static/media/Samim-Bold-FD.woff2": "./static/media/Samim-Bold-FD.716c9ed64b208342a5d5.woff2",
     "index.html": "./index.html",
     "main.6f14d006.css.map": "./static/css/main.6f14d006.css.map",
-    "main.b112a0ed.js.map": "./static/js/main.b112a0ed.js.map",
+    "main.110e829d.js.map": "./static/js/main.110e829d.js.map",
     "787.6135cd1d.chunk.js.map": "./static/js/787.6135cd1d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6f14d006.css",
-    "static/js/main.b112a0ed.js"
+    "static/js/main.110e829d.js"
   ]
 }

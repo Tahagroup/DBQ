@@ -8,8 +8,6 @@ export default function SheetSelect(props) {
     isActive.current = index;
     props.setSelectedSheet(sheet);
   }
-
-  console.log(isActive);
   return (
     <div className={styles.wrapper}>
       {props.sheetData.map((sheetName, index) => (
