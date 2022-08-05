@@ -24,7 +24,6 @@ const Header = (props) => {
       const excelFileName = fileName.current.split(".").slice(0, -1);
       document.title = excelFileName.join(".");
     };
-    // #FIXME:
     try {
       reader.readAsBinaryString(file);
     } catch (error) {
@@ -37,10 +36,10 @@ const Header = (props) => {
     <div className={`${styles.header} unselectable`}>
       <div className={styles.titleFlex}>
         <span className={styles.title}>
-          DBQ<sup className={styles.version}>v1.4</sup>
+          Excely<sup className={styles.version}>v1.4</sup>
         </span>
         <span className={styles.subtitle}>نمایشگر فایل های اکسل</span>
-        <a className={styles.link} href="https://github.com/Tahagroup/DBQ">
+        <a className={styles.link} href="https://github.com/Tahagroup/excely">
           Dev: Yasin.bsr
         </a>
       </div>
