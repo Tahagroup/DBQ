@@ -81,7 +81,14 @@ function noFilePage(sheetData) {
   return (
     <div className="no-excel--wrapper">
       <img src={logo} alt="excel" className="excel-icon" />
-      {sheetData ? (
+      {
+        <span className="excel-text">
+          <div>با دکمه بالای صفحه</div>
+          <div>یک فایل اکسل</div>
+          <div>.انتخاب کنید</div>
+        </span>
+      }
+      {/* {sheetData ? (
         <span className="excel-text">
           <div>⬆</div>
           <div>صفحه موردنظر را</div>
@@ -93,7 +100,7 @@ function noFilePage(sheetData) {
           <div>یک فایل اکسل</div>
           <div>.انتخاب کنید</div>
         </span>
-      )}
+      )} */}
     </div>
   );
 }

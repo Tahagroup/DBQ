@@ -84,11 +84,13 @@ td {
 
 /* Track */
 ::-webkit-scrollbar-track {
+  border-radius: 1rem;
   background: beige !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
   background: rgb(29, 112, 68);
 }
 
