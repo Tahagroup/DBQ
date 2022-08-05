@@ -38,10 +38,14 @@ const Header = (props) => {
         <span className={styles.title}>
           Excely<sup className={styles.version}>v1.4</sup>
         </span>
-        <span className={styles.subtitle}>نمایشگر فایل های اکسل</span>
-        <a className={styles.link} href="https://github.com/Tahagroup/excely">
+        <span className={styles.subtitle}>
+          <a className={styles.link} href="https://github.com/Tahagroup/excely">
+            نمایشگر فایل های اکسل
+          </a>
+        </span>
+        {/* <a className={styles.link} href="https://github.com/Tahagroup/excely">
           Dev: Yasin.bsr
-        </a>
+        </a> */}
       </div>
       {fileName.current && (
         <div className={styles.fileName}>
