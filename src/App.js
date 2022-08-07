@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import SheetSelect from "./components/SheetSelect";
 import logo from "./Excel-icon.png";
+import LoadingSpinner from "./components/loadingSpinner";
 
 function App() {
   const [tableData, setTableData] = useState([[], []]);
@@ -32,6 +33,9 @@ function App() {
     setIsLoading(true);
     const [file] = selectedExcelFile.target.files;
     const reader = new FileReader();
+    if (sheetData.length > 1) {
+      document.title = sheetNameData;
+    }
     reader.onload = (evt) => {
       setIsLoading(false);
       const bstr = evt.target.result;
@@ -71,7 +75,8 @@ function App() {
         />
       )}
       {hasData && <MainContent tableData={tableData} loading={isLoading} />}
-      {!hasData && noFilePage(sheetData)}
+      {!hasData && sheetData && <LoadingSpinner />}
+      {!hasData && !sheetData && noFilePage(sheetData)}
     </React.Fragment>
   );
 }

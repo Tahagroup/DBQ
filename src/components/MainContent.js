@@ -1,7 +1,7 @@
 import { React, useMemo } from "react";
 
 import Table from "./Table";
-import styles from "./RowList.module.css";
+import styles from "./MainContent.module.css";
 import LoadingSpinner from "./loadingSpinner";
 
 function RowList(props) {
