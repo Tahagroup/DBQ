@@ -1,19 +1,19 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import styles from "./SheetSelect.module.css";
 
 export default function SheetSelect(props) {
   var isActive = useRef(0);
+  const sheetSelectHandler = useCallback((sheet, index) => {
+    isActive.current = index;
+    props.setSelectedSheet(sheet);
+  }, []);
 
   useEffect(() => {
     // If new file is loaded or file changes:
     sheetSelectHandler(props.sheetData[0], 0);
     isActive.current = 0;
-  }, [props.sheetData]);
+  }, [props.sheetData, sheetSelectHandler]);
 
-  function sheetSelectHandler(sheet, index) {
-    isActive.current = index;
-    props.setSelectedSheet(sheet);
-  }
   return (
     <div className={styles.wrapper}>
       {props.sheetData.map((sheetName, index) => (

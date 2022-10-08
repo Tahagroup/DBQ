@@ -36,7 +36,7 @@ const Header = (props) => {
     <div className={`${styles.header} unselectable`}>
       <div className={styles.titleFlex}>
         <span className={styles.title}>
-          Excely<sup className={styles.version}>v1.4</sup>
+          Excely<sup className={styles.version}>v1.5</sup>
         </span>
         <span className={styles.subtitle}>
           <a className={styles.link} href="https://github.com/Tahagroup/excely">

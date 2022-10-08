@@ -78,83 +78,7 @@ const StyledInput = withStyles((theme) => ({
   },
 }))(InputBase);
 
-// function TablePaginationActions({
-//   previousPage,
-//   nextPage,
-//   gotoPage,
-//   canPreviousPage,
-//   canNextPage,
-//   pageCount,
-// }) {
-//   const handleFirstPageButtonClick = () => {
-//     gotoPage(0);
-//   };
-
-//   const handleBackButtonClick = () => {
-//     previousPage();
-//   };
-
-//   const handleNextButtonClick = () => {
-//     nextPage();
-//   };
-
-//   const handleLastPageButtonClick = () => {
-//     gotoPage(pageCount - 1);
-//   };
-
-//   return (
-//     <div style={{ flexShrink: 0 }}>
-//       <IconButton
-//         onClick={handleFirstPageButtonClick}
-//         disabled={!canPreviousPage}
-//         aria-label="first page"
-//       >
-//         <FirstPageIcon />
-//       </IconButton>
-//       <IconButton
-//         onClick={handleBackButtonClick}
-//         disabled={!canPreviousPage}
-//         aria-label="previous page"
-//       >
-//         <KeyboardArrowLeft />
-//       </IconButton>
-//       <IconButton
-//         onClick={handleNextButtonClick}
-//         disabled={!canNextPage}
-//         aria-label="next page"
-//       >
-//         <KeyboardArrowRight />
-//       </IconButton>
-//       <IconButton
-//         onClick={handleLastPageButtonClick}
-//         disabled={!canNextPage}
-//         aria-label="last page"
-//       >
-//         <LastPageIcon />
-//       </IconButton>
-//     </div>
-//   );
-// }
-
 function Table({ columns, data }) {
-  // const filterTypes = React.useMemo(
-  //   () => ({
-  //     // Or, override the default text filter to use
-  //     // "startWith"
-  //     text: (rows, id, filterValue) => {
-  //       return rows.filter(row => {
-  //         const rowValue = row.values[id]
-  //         return rowValue !== undefined
-  //           ? String(rowValue)
-  //               .toLowerCase()
-  //               .startsWith(String(filterValue).toLowerCase())
-  //           : true
-  //       })
-  //     },
-  //   }),
-  //   []
-  // );
-
   const defaultColumn = React.useMemo(
     () => ({
       // Let's set up our default Filter UI
@@ -197,7 +121,6 @@ function Table({ columns, data }) {
     usePagination
   );
 
-  // fW
   // Excel export implemention
   // function getExcel() {
   //   const config = {
