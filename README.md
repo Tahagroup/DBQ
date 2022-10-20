@@ -1,7 +1,7 @@
 # Excely
 
 A react app to preview and search in spreadsheets using browsers.<br/><br/>
-[Live Demo](https://tail-do.netlify.app/)
+[Live Demo](https://excely.netlify.app/)
 ## How to use:
 1) Select an excel file using "انتخاب فایل" button.
 2) Select the desired sheet.
