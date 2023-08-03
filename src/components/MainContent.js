@@ -15,8 +15,7 @@ function RowList(props) {
       }),
     [props.tableData[1]]
   );
-  /////////////////////////////////
-  // return <LoadingSpinner />;
+
   return props.loading ? (
     <LoadingSpinner />
   ) : (

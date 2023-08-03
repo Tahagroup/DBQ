@@ -7,16 +7,13 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  /* flex-direction: column-reverse; */
 }
 
 .excel-icon {
-  /* height: auto; */
   height: 30vh;
   margin: 2rem;
   margin-left: 3rem;
   transition: all 0.2s ease-in-out;
-  /* margin-bottom: 1rem; */
 }
 .excel-icon:hover {
   transform: scale(1.1) rotate(-10deg);

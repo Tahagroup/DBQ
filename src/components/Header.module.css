@@ -27,12 +27,6 @@
   box-shadow: 9px 9px 16px rgba(96, 173, 91, 0.5),
     -9px -9px 16px rgba(96, 173, 91, 0.5),
     inset 3px 3px 7px rgba(92, 131, 96, 0.48), inset -3px -3px 7px #478860;
-  /* background: linear-gradient(
-    318.32deg,
-    rgba(163, 177, 198, 0.1) 0%,
-    rgba(163, 177, 198, 0.1) 55%,
-    rgba(163, 177, 198, 0.25) 100%
-    ); */
 }
 .titleFlex:hover {
   background: linear-gradient(
@@ -66,9 +60,6 @@
 
 .filePicker {
   margin-top: 0.5rem;
-  /* border: none;
-  outline: none;
-  outline-width: 0; */
 }
 
 .fileInput label {
@@ -77,7 +68,6 @@
   width: 200px;
   height: 50px;
   border-radius: 25px;
-  /* background: linear-gradient(40deg, #ff6ec4, #7873f5); */
   background: rgb(165, 227, 40);
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -93,10 +83,4 @@ input:hover + label {
   transform: scale(1.18);
   background-color: rgb(231, 231, 25);
   color: #2d0351;
-  /* box-shadow: 14px 14px 14px 14px rgba (0, 0, 0, 0.4); */
-}
-
-input:focus + label {
-  /* outline: 1px solid #000; */
-  /* outline: -webkit-focus-ring-color auto 2px; */
 }

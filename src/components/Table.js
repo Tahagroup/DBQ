@@ -8,17 +8,8 @@ import TableFooter from "@material-ui/core/TableFooter";
 import { alpha, withStyles } from "@material-ui/core/styles";
 import InputBase from "@material-ui/core/InputBase";
 import Paper from "@material-ui/core/Paper";
-// import IconButton from "@material-ui/core/IconButton";
-
-// import FirstPageIcon from "@material-ui/icons/FirstPage";
-// import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
-// import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-// import LastPageIcon from "@material-ui/icons/LastPage";
-
 import { useTable, useSortBy, useFilters, usePagination } from "react-table";
-
 import styles from "./Table.module.css";
-// import generateExcel from "zipcelx";
 
 function DefaultColumnFilter({
   column: { filterValue, preFilteredRows, setFilter },
@@ -58,7 +49,6 @@ const StyledInput = withStyles((theme) => ({
     width: "auto",
     padding: "10px 12px",
     transition: theme.transitions.create(["border-color", "box-shadow"]),
-    // Use the system font instead of the default Roboto font.
     fontFamily: [
       "-apple-system",
       "BlinkMacSystemFont",
@@ -81,23 +71,17 @@ const StyledInput = withStyles((theme) => ({
 function Table({ columns, data }) {
   const defaultColumn = React.useMemo(
     () => ({
-      // Let's set up our default Filter UI
       Filter: DefaultColumnFilter,
     }),
     []
   );
-
-  // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
+    page,
     rows,
-
-    // pagination stuff
     canPreviousPage,
     canNextPage,
     pageOptions,
@@ -111,8 +95,7 @@ function Table({ columns, data }) {
     {
       columns,
       data,
-      defaultColumn, // Be sure to pass the defaultColumn option
-      // filterTypes,
+      defaultColumn,
       initialState: { pageIndex: 0 },
       disableMultiSort: true,
     },
@@ -121,66 +104,10 @@ function Table({ columns, data }) {
     usePagination
   );
 
-  // Excel export implemention
-  // function getExcel() {
-  //   const config = {
-  //     filename: "general-ledger-Q1",
-  //     sheet: {
-  //       data: [],
-  //     },
-  //   };
-
-  //   const dataSet = config.sheet.data;
-
-  //   // review with one level nested config
-  //   // HEADERS
-  //   headerGroups.forEach((headerGroup) => {
-  //     const headerRow = [];
-  //     if (headerGroup.headers) {
-  //       headerGroup.headers.forEach((column) => {
-  //         headerRow.push(...getHeader(column));
-  //       });
-  //     }
-
-  //     dataSet.push(headerRow);
-  //   });
-
-  //   // FILTERED ROWS
-  //   if (rows.length > 0) {
-  //     rows.forEach((row) => {
-  //       const dataRow = [];
-
-  //       Object.values(row.values).forEach((value) =>
-  //         dataRow.push({
-  //           value,
-  //           type: typeof value === "number" ? "number" : "string",
-  //         })
-  //       );
-
-  //       dataSet.push(dataRow);
-  //     });
-  //   } else {
-  //     dataSet.push([
-  //       {
-  //         value: "No data",
-  //         type: "string",
-  //       },
-  //     ]);
-  //   }
-
-  //   return generateExcel(config);
-  // }
-  // Render the UI for your table ..................................................................................................
   return (
     <Paper className={styles.tablePaper}>
-      {/* <button onClick={getExcel}>Get Excel</button> */}
       <div style={{ overflowX: "auto" }}>
-        <MaUTable
-          {...getTableProps()}
-          size="small" // dense table sizes(single row size)
-          className={styles.table}
-        >
-          {/* This is filters component: ///////////////////////////////////////////////////////////////////////////*/}
+        <MaUTable {...getTableProps()} size="small" className={styles.table}>
           <TableHead className={styles.TableHead}>
             {headerGroups.map((headerGroup) => (
               <TableRow
@@ -188,8 +115,6 @@ function Table({ columns, data }) {
                 {...headerGroup.getHeaderGroupProps()}
               >
                 {headerGroup.headers.map((column) => {
-                  // Add the sorting props to control sorting. For this example
-                  // we can add them into the header props
                   return (
                     <TableCell
                       className={styles.filtersRow}
@@ -197,7 +122,6 @@ function Table({ columns, data }) {
                       title={null}
                     >
                       {column.render("Header")}
-                      {/* Add a sort direction indicator */}
                       <span>
                         {column.isSorted
                           ? column.isSortedDesc
@@ -205,7 +129,6 @@ function Table({ columns, data }) {
                             : " 🔼"
                           : ""}
                       </span>
-                      {/* Render the columns filter UI */}
                       <div>
                         {column.canFilter ? column.render("Filter") : null}
                       </div>
@@ -218,7 +141,6 @@ function Table({ columns, data }) {
               </TableRow>
             ))}
           </TableHead>
-          {/* This is table rows(without filters part) //////////////////////////////////////////////////////////////*/}
           <TableBody {...getTableBodyProps()}>
             {page.map((row, i) => {
               prepareRow(row);
@@ -227,12 +149,6 @@ function Table({ columns, data }) {
                   {row.cells.map((cell) => {
                     return (
                       <TableCell
-                        // style={{
-                        //   width: "100%",
-                        //   height: "100%",
-                        //   backgroundColor: "red",
-                        //   borderRadius: "10px",
-                        // }}
                         {...cell.getCellProps()}
                         className={styles.excelRow}
                       >
@@ -244,9 +160,7 @@ function Table({ columns, data }) {
               );
             })}
           </TableBody>
-          <TableFooter>
-            {/* A footer can be implemented for here... ///////////////////////////////////////////////////////////////*/}
-          </TableFooter>
+          <TableFooter></TableFooter>
         </MaUTable>
         {/* 
         Pagination under Table:
@@ -300,7 +214,6 @@ function Table({ columns, data }) {
                 {pageSize !== data.length
                   ? `${pageSize} سطر در صفحه`
                   : "نمایش کل سطرها"}
-                {/* pageSize == data.length? "":{pageSize} سطر در صفحه */}
               </option>
             ))}
           </select>

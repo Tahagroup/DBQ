@@ -29,7 +29,6 @@ function App() {
   }
 
   function SelectedSheetHandler(sheetNameData) {
-    // setselectedSheetName(sheetName);
     setIsLoading(true);
     const [file] = selectedExcelFile.target.files;
     const reader = new FileReader();
@@ -40,9 +39,8 @@ function App() {
       setIsLoading(false);
       const bstr = evt.target.result;
       const wb = xlsx.read(bstr, { type: "binary" });
-      // props.setSheetNames(wb.SheetNames);
       const wsname = sheetNameData;
-      const ws = wb.Sheets[wsname]; //worksheet names
+      const ws = wb.Sheets[wsname];
       const jsonData = xlsx.utils.sheet_to_json(ws);
       setTableData([jsonData, Object.keys(jsonData[0])]); //[[array of data without headers],[headers]]
     };
@@ -54,12 +52,6 @@ function App() {
   }
 
   const hasData = tableData[0].length !== 0;
-  // console.log("Rendering App.js");
-  // console.log({
-  //   sheetData: sheetData,
-  //   hasData: hasData,
-  //   selectedSheetName: selectedSheetName,
-  // });
   return (
     <React.Fragment>
       <Header
@@ -93,19 +85,6 @@ function noFilePage(sheetData) {
           <div>.انتخاب کنید</div>
         </span>
       }
-      {/* {sheetData ? (
-        <span className="excel-text">
-          <div>⬆</div>
-          <div>صفحه موردنظر را</div>
-          <div>.انتخاب کنید</div>
-        </span>
-      ) : (
-        <span className="excel-text">
-          <div>با دکمه بالای صفحه</div>
-          <div>یک فایل اکسل</div>
-          <div>.انتخاب کنید</div>
-        </span>
-      )} */}
     </div>
   );
 }
